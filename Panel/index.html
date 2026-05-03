@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.antalervin19.hu/sponge.min.js"></script>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css">
+  
+  <link rel="stylesheet" href="styles/index.css">
+
+  <title>WebGSM - Panel</title>
+
+</head><body>
+  
+  <nav>
+    <button data-page="home" onclick="spSwitch('home')">HOME</button>
+    <button data-page="hypers" onclick="spSwitch('hypers')">HYPERS</button>
+    <button data-page="users" onclick="spSwitch('users')">USERS</button>
+    <button data-page="settings" onclick="spSwitch('settings')">SETTINGS</button>
+  </nav>
+
+  <div id="pagecontent">
+
+  </div>
+
+  <script>
+    spElement(document.getElementById("pagecontent"));
+
+    spDeclareViews({
+      home: "/pages/home.html",
+      hypers: "/pages/hypers.html",
+      users: "/pages/users.html",
+      settings: "/pages/settings.html"
+    });
+
+    function updateActiveTab() {
+      const current = spCurrentPage();
+
+      document.querySelectorAll("nav button").forEach(btn => {
+        if (btn.dataset.page === current) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    }
+
+    spFetchAll().then(() => {
+      spSwitch("home");
+      updateActiveTab();
+    });
+
+    const oldSwitch = spSwitch;
+    spSwitch = function (page) {
+      oldSwitch(page);
+      updateActiveTab();
+    };
+  </script>
+
+</body></html>
