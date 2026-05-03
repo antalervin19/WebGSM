@@ -1,0 +1,76 @@
+# =========================
+# Build outputs
+# =========================
+bin/
+obj/
+out/
+publish/
+
+# =========================
+# Visual Studio / Rider / VS Code
+# =========================
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# =========================
+# .NET / NuGet
+# =========================
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+
+# Restore folder
+project.lock.json
+
+# =========================
+# Secrets / config
+# =========================
+appsettings.Development.json
+appsettings.*.local.json
+secrets.json
+
+# User secrets (dotnet user-secrets)
+secrets.json
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Docker (if used)
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Local testing / runtime junk
+# =========================
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Publish artifacts (optional)
+# =========================
+publish/
